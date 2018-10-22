@@ -1,0 +1,14 @@
+
+<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="payments-details-artist--1" transform="translate(-18.000000, -796.000000)">
+            <text id="+-copy" font-family=".SFNSDisplay, .SF NS Display" font-size="20" font-weight="normal" letter-spacing="-0.345678985" fill="#B1B1B1">
+                <tspan x="30" y="820">+</tspan>
+            </text>
+            <path d="M36.5,832 C46.1649831,832 54,824.164983 54,814.5 C54,804.835017 46.1649831,797 36.5,797 C26.8350169,797 19,804.835017 19,814.5 C19,824.164983 26.8350169,832 36.5,832 Z" id="Oval-3-Copy-4" stroke="#4F4F4F" stroke-width="2" stroke-linecap="round" stroke-dasharray="5"></path>
+        </g>
+    </g>
+</svg>

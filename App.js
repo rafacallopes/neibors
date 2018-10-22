@@ -35,7 +35,7 @@ export default class App extends React.Component {
               title="add"
               hideNavBar */}
               
-            />
+            {/* /> */}
           </Scene>
         </Router>
         </Provider>

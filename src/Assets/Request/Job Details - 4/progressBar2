@@ -1,0 +1,24 @@
+
+<svg width="329px" height="36px" viewBox="0 0 329 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="payments-details-artist--1" transform="translate(-21.000000, -164.000000)">
+            <polyline id="Path-3" stroke="#D8D8D8" points="36 183 186.765872 183 336 183"></polyline>
+            <circle id="Oval-7" fill="#2D7808" cx="35" cy="182" r="14"></circle>
+            <circle id="Oval-7-Copy-4" stroke="#42A90E" cx="188" cy="182" r="17"></circle>
+            <circle id="Oval-7-Copy" fill="#D8D8D8" cx="336" cy="182" r="14"></circle>
+            <circle id="Oval-7-Copy-2" fill="#37910A" cx="188" cy="182" r="14"></circle>
+            <text id="1" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" letter-spacing="-0.388888896" fill="#FFFFFF">
+                <tspan x="32.0054796" y="188">1</tspan>
+            </text>
+            <text id="2" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" letter-spacing="-0.388888896" fill="#FFFFFF">
+                <tspan x="184.041612" y="188">2</tspan>
+            </text>
+            <text id="3" font-family=".AppleSystemUIFont" font-size="14" font-weight="normal" letter-spacing="-0.388888896" fill="#000000">
+                <tspan x="332" y="188">3</tspan>
+            </text>
+        </g>
+    </g>
+</svg>

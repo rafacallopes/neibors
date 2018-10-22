@@ -1,0 +1,15 @@
+
+<svg width="72px" height="72px" viewBox="0 0 72 72" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="sign-up" transform="translate(-150.000000, -180.000000)">
+            <circle id="Oval-4" stroke="#000000" fill="#D8D8D8" cx="186" cy="216" r="35"></circle>
+            <path d="M182,220 C186.971,220 191,215.522 191,210 C191,204.478 186.971,200 182,200 C177.029,200 173,204.478 173,210 C173,215.522 177.029,220 182,220 L182,220 Z M190.703,217.319 C188.691,220.161 185.546,222 182,222 C178.454,222 175.309,220.161 173.297,217.319 C171.904,218.411 171,220.091 171,222 L171,226 C171,229.313 173.687,232 177,232 L187,232 C190.313,232 193,229.313 193,226 L193,222 C193,220.091 192.096,218.411 190.703,217.319 L190.703,217.319 Z" id="Fill-176" fill="#9B9B9B"></path>
+            <text id="+" font-family=".AppleSystemUIFont" font-size="18" font-weight="normal" letter-spacing="-0.0972222164" fill="#9B9B9B">
+                <tspan x="193" y="208">+</tspan>
+            </text>
+        </g>
+    </g>
+</svg>
