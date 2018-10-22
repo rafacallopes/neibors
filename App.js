@@ -1,12 +1,44 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
+import { createStore, applyMiddleware, compose } from 'redux'
+import { Provider } from 'react-redux'
+import thunk from 'redux-thunk'
+import reducers from './src/reducers/reducers'  
+import Login from './src/Components/Login';
 
 export default class App extends React.Component {
   render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+      let store = createStore(reducers, {}, compose( applyMiddleware(thunk) ) )
+      return (
+    
+        <Provider store={store}>
+    
+        <Router>
+          <Scene key="root">
+            <Scene key="login"
+              component={Login}
+              title="login"
+              initial
+              hideNavBar
+            />
+            {/* <Scene
+              key="main"
+              component={Main}
+              title="main"
+              initial
+              hideNavBar
+            />
+             <Scene
+              key="add"
+              component={Add}
+              title="add"
+              hideNavBar */}
+              
+            />
+          </Scene>
+        </Router>
+        </Provider>
     );
   }
 }
