@@ -3,12 +3,15 @@ import { Text, View, TextInput, Dimensions, Image, TouchableOpacity, ImageBackgr
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Button, Header, Container, Body } from 'native-base';
-import { emailChanged, passwordChanged, usernameChanged, loginUser } from '../actions';
+import { searchChanged } from '../actions';
 
 const { width, height } = Dimensions.get('window')
 
 class Home extends Component {
-
+   
+    onSearchChange(text) {
+        this.props.searchChanged(text);
+      }
 
     onRequestPress = () => {
         console.log('Request')
@@ -46,9 +49,23 @@ render = () => {
     </Header>
     
     <Body>
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: height * 0.73}}>
+        <View style={{paddingTop: height * 0.02}}></View>
+        <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+            <Image source={require('../Assets/Find/2/location.png')} 
+                style={styles.formIcons}/>
+        </View>
+             <View style={{paddingHorizontal:8}}>
+                  <TextInput
+                    style={styles.inputText}
+                    label="Search"
+                    onChangeText={this.onSearchChange.bind(this)}
+                    value={this.props.search}
+                  />
+        </View>
+        
+        
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: height * 0.63}}>
           
-            
             <View style={{alignSelf:'center'}}>
                 <Button style={styles.Request} onPress={() => this.onRequestPress()}>
                     <View style={{paddingHorizontal: width * 0.18, }}>
@@ -56,6 +73,7 @@ render = () => {
                     </View>
                 </Button>
             </View>
+       
         </View>
     </Body>
     
@@ -79,33 +97,25 @@ const styles = {
       width: '1%'
     },
     inputContainer: {
-      width: width * 0.75,
+      width: width * 0.88,
       backgroundColor: '#fff',
       height: height * 0.073,
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'space-between',
       borderRadius: 30,
-    },
-    FindJob: {
-      width: width * 0.75,
-      borderRadius: 30,
-      height: height * 0.08,
-      borderColor: '#103e59',
-      borderWidth: 2,
-      backgroundColor: '#103e59',
       shadowOffset:{  width: 2,  height: 4,  },
       shadowColor: '#3c3f44',
       shadowOpacity: 1.0,
     },
-
+ 
     Request: {
         width: width * 0.75,
         borderRadius: 30,
         height: height * 0.08,
-        borderColor: '#436625',
+        borderColor: '#103e59',
         borderWidth: 2,
-        backgroundColor: '#436625',
+        backgroundColor: '#103e59',
         shadowOffset:{  width: 2,  height: 4,  },
         shadowColor: '#3c3f44',
         shadowOpacity: 1.0,
@@ -137,4 +147,12 @@ const styles = {
   };
 
 
-export default Home;
+  const mapStateToProps = ({ job }) => {
+    const { search } = job;
+  
+    return { search };
+  };
+  
+  export default connect(mapStateToProps, {
+    searchChanged
+  })(Home);

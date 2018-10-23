@@ -51,7 +51,7 @@ render = () => {
     <Body>
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', paddingBottom: height * 0.1}}>
             <View style={{alignSelf:'center'}}>
-                <Button style={styles.FindJob} onPress={() => this.onRequestPress()}>
+                <Button style={styles.FindJob} onPress={() => this.onFindPress()}>
                     <View style={{paddingHorizontal: width * 0.24}}>
                         <Text style={{fontSize: 20, color: 'white', flexDirection: 'row'}}>FIND A JOB</Text>
                     </View>

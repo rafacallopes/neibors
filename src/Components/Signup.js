@@ -45,7 +45,22 @@ render = () => {
 
             <View style={{paddingTop: height * 0.025}}></View>
 
+            <View style={{flexDirection: 'column'}}>
+              <TouchableOpacity>
+                <Image source={require('../Assets/login/Signup/addpic.png')} 
+                        style={styles.pic}/>
+                <View style={{paddingTop: width * 0.02, paddingLeft: width * 0.012}}><Text style={{FontSize: 15, color: 'black'}}>Add photo</Text></View> 
+              </TouchableOpacity>
+            </View>
+
+            <View style={{paddingTop: height * 0.025}}></View>
+
             <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+              <View>
+                <Image source={require('../Assets/login/Login/username.png')} 
+                style={styles.formIcons}/>
+              </View>
+                <View style={{paddingHorizontal:8}}>
                   <TextInput
                     style={styles.inputText}
                     label="Username"
@@ -53,11 +68,18 @@ render = () => {
                     onChangeText={this.onUsernameChange.bind(this)}
                     value={this.props.username}
                   />
+                </View>
             </View>
 
             <View style={{paddingTop: height * 0.025}}></View>
               
             <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+              <View>
+                <Image source={require('../Assets/login/Login/password.png')} 
+                style={styles.formIcons}/>
+              </View>
+              <View style={{paddingHorizontal:8}}>
+
                   <TextInput
                     style={styles.inputText}
                     secureTextEntry
@@ -66,36 +88,70 @@ render = () => {
                     onChangeText={this.onPasswordChange.bind(this)}
                     value={this.props.password}
                   />
+              </View>
             </View>
+
 
             <View style={{paddingTop: height * 0.025}}></View>
 
 
              <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+             <View>
+                <Image source={require('../Assets/login/Login/password.png')} 
+                style={styles.formIcons}/>
+              </View>
+              <View style={{paddingHorizontal:8}}>
+
                   <TextInput
                     style={styles.inputText}
-                    secureTextEntry
                     label="Password"
                     placeholder="password"
                     onChangeText={this.onPasswordChange.bind(this)}
                     value={this.props.password}
                   />
+              </View>
+
             </View>
 
             <View style={{paddingTop: height * 0.025}}></View>
 
              <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+             <View>
+                <Image source={require('../Assets/login/Login/email.png')} 
+                style={styles.formIcons}/>
+              </View>
+             <View style={{paddingHorizontal:8}}>
+
                   <TextInput
                     style={styles.inputText}
-                    secureTextEntry
+                    
                     label="email"
                     placeholder="E-mail"
                     onChangeText={this.onEmailChange.bind(this)}
                     value={this.props.password}
                   />
+              </View>
+            </View>
+
+
+            <View style={{paddingTop: height * 0.025}}></View>
+
+            <View style={{flexDirection: 'row'}}>
+                <TouchableOpacity onPress={() => console.log('opens facebook page')}>
+                    <Image source={require('../Assets/login/Login/facebook.png')} 
+                            style={styles.facebook}/>
+              </TouchableOpacity>
+
+              <View style={{paddingHorizontal: width * 0.025}}></View>
+
+                <TouchableOpacity onPress={() => console.log('clicked')}>
+                    <Image source={require('../Assets/login/Login/user.png')} 
+                            style={styles.user}/>
+              </TouchableOpacity>
             </View>
 
             <View style={{paddingTop: height * 0.025}}></View>
+
 
           <View style={{alignSelf:'center'}}>
                   <Button style={styles.Button} onPress={() => this.onButtonPress()}>
@@ -126,18 +182,18 @@ const styles = {
       color: 'red'
     },
     TextInput: {
-     
+      flex: 1,
       fontSize: 30,
       marginLeft: 32,
-      width: '1%'
+      paddingRight: 10
     },
     inputContainer: {
       width: width * 0.75,
       backgroundColor: '#fff',
-      height: height * 0.060,
+      height: height * 0.070,
       alignItems: 'center',
       flexDirection: 'row',
-      justifyContent: 'space-between',
+      paddingLeft: width * 0.05,
       borderRadius: 30,
       shadowOffset:{  width: 2,  height: 4,  },
       shadowColor: '#3c3f44',
@@ -169,7 +225,24 @@ const styles = {
     logo: {
       width: 50,
       height: 50,
-    }
+    },
+    pic: {
+      width: 80,
+      height: 80,
+    },
+    facebook: {
+      width: 70,
+      height: 70,
+    },
+    user: {
+      width: 60,
+      height: 60,
+    },
+    formIcons: {
+      width: 30,
+      height: 30,
+    },
+
   };
 
 
