@@ -6,6 +6,12 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import reducers from './src/reducers/reducers'  
 import Login from './src/Components/Login';
+import Signup from './src/Components/Signup';
+import Home from './src/Components/Home';
+import Request from './src/Components/Request';
+
+
+
 
 export default class App extends React.Component {
   render() {
@@ -13,7 +19,7 @@ export default class App extends React.Component {
       return (
     
         <Provider store={store}>
-    
+      <View style={{flex: 1}}>
         <Router>
           <Scene key="root">
             <Scene key="login"
@@ -22,22 +28,28 @@ export default class App extends React.Component {
               initial
               hideNavBar
             />
-            {/* <Scene
-              key="main"
-              component={Main}
-              title="main"
-              initial
+         <Scene
+              key="sign"
+              component={Signup}
+              title="sign"
               hideNavBar
-            />
-             <Scene
-              key="add"
-              component={Add}
-              title="add"
-              hideNavBar */}
-              
-            {/* /> */}
+          /> 
+          <Scene
+              key="home"
+              component={Home}
+              title="home"
+              hideNavBar
+          /> 
+           <Scene
+              key="request"
+              component={Request}
+              title="request"
+              hideNavBar
+          /> 
+             
           </Scene>
         </Router>
+        </View>
         </Provider>
     );
   }

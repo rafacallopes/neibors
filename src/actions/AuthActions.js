@@ -2,6 +2,7 @@ import { Actions } from 'react-native-router-flux';
 import {
   EMAIL_CHANGED,
   PASSWORD_CHANGED,
+  USERNAME_CHANGED,
   // LOGIN_USER_SUCCESS,
   // LOGIN_USER_FAIL,
   // LOGIN_USER
@@ -11,12 +12,19 @@ export const emailChanged = (text) => {
   return {
     type: EMAIL_CHANGED,
     payload: text
-  };
+  }; 
 };
 
 export const passwordChanged = (text) => {
   return {
     type: PASSWORD_CHANGED,
+    payload: text
+  };
+};
+
+export const usernameChanged = (text) => {
+  return {
+    type: USERNAME_CHANGED,
     payload: text
   };
 };

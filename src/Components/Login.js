@@ -1,15 +1,28 @@
 import React, { Component } from 'react';
-import { Text, View, TextInput, Dimensions, Image, TouchableOpacity, ImageBackground } from 'react-native';
+import { Text, View, TextInput, Dimensions, Image, TouchableOpacity, ImageBackground, Modal } from 'react-native';
 import { connect } from 'react-redux';
-import { emailChanged, passwordChanged, loginUser } from '../actions';
-import {Header, Footer, Title, Button, Icon} from 'native-base';
+import { usernameChanged, emailChanged, passwordChanged, loginUser } from '../actions';
+import { Button } from 'native-base';
+import { Actions } from 'react-native-router-flux';
 
 const { width, height } = Dimensions.get('window')
 
 class Login extends Component {
 
-  forgetPassword = () => {
-    console.log('show modal')
+  state = {
+    modalVisible: false,
+  };
+
+  setModalVisible = (visible) => {
+    this.setState({modalVisible: visible});
+  }
+
+  onButtonPress = () => {
+    Actions.home()
+  }
+
+  onUsernameChange(text) {
+    this.props.usernameChanged(text);
   }
 
   onEmailChange(text) {
@@ -20,42 +33,45 @@ class Login extends Component {
     this.props.passwordChanged(text);
   }
 
-  onButtonPress = () => {
-    const { email, password } = this.props;
+  // onButtonPress = () => {
+  //   const { email, password } = this.props;
 
-    this.props.loginUser({ email, password });
-  }
-
-  // renderButton() {
-  //   if (this.props.loading) {
-  //     return <Spinner size="large" />;
-  //   }
-
-  //   return (
-  //     <Button onPress={this.onButtonPress.bind(this)}>
-  //       Login
-  //     </Button>
-  //   );
+  //   this.props.loginUser({ email, password });
   // }
+
+
   render() {
     return (
-      <ImageBackground source={require('../Assets/background.png')} 
-      style={styles.backgroundImage}>
-      <View style={styles.inner}>
+      <ImageBackground source={require('../Assets/login/background.png')} 
+        style={styles.backgroundImage}>
+        <View style={styles.inner}>
 
-          <View style ={{alignSelf: 'center', paddingTop: width * 0.15, flexDirection: 'column', alignItems: 'center'}}>
-              <View style={{alignSelf: 'center'}}>
+       <Modal
+          animationType="slide"
+          transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => {
+            console.log('Modal has been closed.');
+          }}>
+          
+        <ImageBackground source={require('../Assets/login/background.png')} 
+            style={styles.backgroundImage}>
+        <View style={styles.inner}>
+            
+          <View style={{paddingTop: width * 0.15}}></View>
+
+          <View style={{alignSelf: 'center'}}>
                 <Image source={require('../Assets/snowbig.png')} 
                 style={styles.logo}/>   
-                </View>
-              <View style={{paddingTop: 10, alignSelf:'center'  }}>
-                <Text style={{fontSize: 40, color: '#103e59'}}>NEYBORS</Text>
-              </View>
           </View>
 
-                <View style={{paddingTop: width * 0.14}}></View>
+          <View style={{ paddingLeft: width * 0.14, paddingTop: height * 0.08}}>
+                <Text style={{fontSize: 26, color: '#3c3f44' }}>Forgot Password?</Text>
+          </View>
+                   
+          <View style={{paddingTop: width * 0.025}}></View>
 
-             <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+          <View style={[styles.inputContainer, {alignSelf:'center'}]}>
                   <TextInput
                     style={styles.inputText}
                     secureTextEntry
@@ -64,11 +80,53 @@ class Login extends Component {
                     onChangeText={this.onEmailChange.bind(this)}
                     value={this.props.email}
                   />
-                  </View>
+          </View>
 
-                <View style={{paddingVertical: width * 0.031}}></View>
+         <View style={{paddingTop: width * 0.08}}></View>
+
+
+        <View style={{alignSelf:'center'}}>
+              <Button style={styles.Button} onPress={() => {
+                  this.setModalVisible(!this.state.modalVisible);
+                }}>
+                  <View style={{paddingHorizontal: width * 0.3}}>
+              <Text style={{fontSize: 18, color: 'white',}}>Send</Text>
+                  </View>
+              </Button>
+        </View>
+
+      </View>
+      </ImageBackground>
+        </Modal>
+
+          <View style ={{alignSelf: 'center', paddingTop: width * 0.15, flexDirection: 'column', alignItems: 'center'}}>
+            <View style={{alignSelf: 'center'}}>
+                <Image source={require('../Assets/snowbig.png')} 
+                style={styles.logo}/>   
+            </View>
+
+            <View style={{paddingTop: 10, alignSelf:'center'}}>
+                  <Text style={{fontSize: 40, color: '#103e59'}}>NEYBORS</Text>
+            </View>
+          </View>
+
+          <View style={{paddingTop: width * 0.14}}></View>
+
+          <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+                <TextInput
+                    style={styles.inputText}
+                    secureTextEntry
+                    label="Username"
+                    placeholder="Username"
+                    onChangeText={this.onUsernameChange.bind(this)}
+                    value={this.props.username}
+               />
+                  
+          </View>
+
+          <View style={{paddingVertical: width * 0.031}}></View>
               
-                <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+           <View style={[styles.inputContainer, {alignSelf:'center'}]}>
                   <TextInput
                     style={styles.inputText}
                     secureTextEntry
@@ -77,107 +135,43 @@ class Login extends Component {
                     onChangeText={this.onPasswordChange.bind(this)}
                     value={this.props.password}
                   />
-                  </View>
+          </View>
               
 
-              <Text style={styles.errorTextStyle}>
+              {/* <Text style={styles.errorTextStyle}>
                 {this.props.error}
-              </Text>
+              </Text> */}
 
-                <View style={{alignSelf:'center'}}>
+           <View style={{paddingTop: height * 0.0125}}></View>
+
+          <View style={{alignSelf:'center'}}>
                   <Button style={styles.Button} onPress={() => this.onButtonPress()}>
-                    <View style={{paddingHorizontal: width * 0.28}}>
-                    <Text style={{fontSize: 18, color: 'white',}}>Sign In</Text>
-                  </View>
+                      <View style={{paddingHorizontal: width * 0.28}}>
+                      <Text style={{fontSize: 18, color: 'white',}}>Sign In</Text>
+                      </View>
                   </Button>
-                </View>
+           </View>
                 
-                <View style={{paddingTop: width * 0.03, alignSelf: 'center'}}>
-                  <TouchableOpacity onPress={() => this.forgetPassword()}>
+          <View style={{paddingTop: width * 0.03, alignSelf: 'center'}}>
+                  <TouchableOpacity onPress={() => this.setModalVisible(true)}>
                   <Text style={{ textDecorationLine: 'underline', fontSize: 15, color: '#3c3f44'}}>Forgot password?</Text>
                   </TouchableOpacity>
-                </View>
+          </View>
 
-                {/* <View style={{flexDirection: 'row', paddingTop: width * 0.1}}>
-                <TouchableOpacity>
-              
-                <Icon name='facebook' style={{fontSize: 20}}/>
-                </TouchableOpacity>
-                <TouchableOpacity>
-                <Image/>
-                </TouchableOpacity>
-                </View> */}
-                    <View style={{flexDirection: 'row', paddingTop: height * 0.37, alignSelf: 'center'}}>
-                      <Text style={{fontSize: 20, color: '#103e59' }}>Don't have an account?</Text>
-                      <Button style={{  width: width * 0.35, borderRadius: 30,height: height * 0.035,  borderColor: '#103e59',borderWidth: 2,backgroundColor: '#103e59'}}>
-                        <View style={{paddingHorizontal: width * 0.1}}>
-                        <Text style={{fontSize: 14, color: 'white',}}>Sign Up</Text>
-                        </View>
-                      </Button>
-                    </View>
+          <View style={{flexDirection: 'row', paddingTop: height * 0.37, alignSelf: 'center'}}>
+              <Text style={{fontSize: 20, color: '#103e59' }}>Don't have an account?</Text>
+              <Button onPress={() => Actions.sign()} style={{  width: width * 0.35, borderRadius: 30,height: height * 0.035,  borderColor: '#103e59',borderWidth: 2,backgroundColor: '#103e59'}}>
+                <View style={{paddingHorizontal: width * 0.1}}>
+                    <Text style={{fontSize: 14, color: 'white',}}>Sign Up</Text>
+                </View>
+              </Button>
+          </View>
                   
                   
            
       </View>
       </ImageBackground>
 
-     
-
-          /* <Container>
-
-          <View style={{flexDirection: 'column', alignSelf: 'center', paddingTop: width * 0.5}}>
-
-          <View style={{alignSelf: 'center'}}>
-          <Image
-          style={{width: 230, height: 58}}
-          source={{uri: 'https://scontent.fsdu8-1.fna.fbcdn.net/v/t1.0-9/42128095_1812280528840713_2849025835216666624_n.jpg?_nc_cat=0&oh=6d8f3c3119a68d51191e2cecebb7658d&oe=5C2BEECF'}}
-        />
-        </View>
-
-            <View style={styles.inputContainer}>
-              <TextInput 
-                style={styles.inputText}
-                label="Email"
-                placeholder="email@gmail.com"
-                onChangeText={this.onEmailChange.bind(this)}
-                value={this.props.email}
-            />
-            </View>
-
-            <View style={{paddingVertical: width * 0.02}}></View>
-        
-          <View style={styles.inputContainer}>
-            <TextInput
-              style={styles.inputText}
-              secureTextEntry
-              label="Password"
-              placeholder="password"
-              onChangeText={this.onPasswordChange.bind(this)}
-              value={this.props.password}
-            />
-            </View>
-        
-
-        <Text style={styles.errorTextStyle}>
-          {this.props.error}
-        </Text>
-
-          
-          <Button style={styles.Button} onPress={() => this.onButtonPress()}>
-          <View style={{paddingHorizontal: width * 0.28}}>
-          <Text style={{fontSize: 18, color: 'white', fontWeight: 'bold'}}>Login</Text>
-          </View>
-          </Button>
-
-          <View style={{flexDirection: 'row', alignSelf: 'center', paddingTop: width * 0.03}}>
-          <Text style={{fontSize: 18, color: '#709fea'}}> or</Text>
-          <TouchableOpacity>
-            <Text style={{fontSize: 18, color: '#709fea', fontWeight: 'bold'}}> Sign Up</Text>
-            </TouchableOpacity>
-          </View>
-
-          </View>
-          </Container> */
 
         
         
@@ -206,6 +200,9 @@ const styles = {
     flexDirection: 'row',
     justifyContent: 'space-between',
     borderRadius: 30,
+    shadowOffset:{  width: 2,  height: 4,  },
+    shadowColor: '#3c3f44',
+    shadowOpacity: 1.0,
   },
   Button: {
     width: width * 0.75,
@@ -214,6 +211,9 @@ const styles = {
     borderColor: '#103e59',
     borderWidth: 2,
     backgroundColor: '#103e59',
+    shadowOffset:{  width: 2,  height: 4,  },
+      shadowColor: '#3c3f44',
+      shadowOpacity: 1.0,
   },
 
   backgroundImage: {
@@ -234,11 +234,11 @@ const styles = {
 };
 
 const mapStateToProps = ({ auth }) => {
-  const { email, password, error, loading } = auth;
+  const { username, email, password, error, loading } = auth;
 
-  return { email, password, error, loading };
+  return { username, email, password, error, loading };
 };
 
 export default connect(mapStateToProps, {
-  emailChanged, passwordChanged, loginUser
+  emailChanged, usernameChanged, passwordChanged, loginUser
 })(Login);
