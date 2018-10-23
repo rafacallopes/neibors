@@ -58,7 +58,7 @@ render = () => {
             <View style={[styles.inputContainer, {alignSelf:'center'}]}>
               <View>
                 <Image source={require('../Assets/login/Login/username.png')} 
-                style={styles.formIcons}/>
+                style={styles.noStyle}/>
               </View>
                 <View style={{paddingHorizontal:8}}>
                   <TextInput
@@ -76,7 +76,7 @@ render = () => {
             <View style={[styles.inputContainer, {alignSelf:'center'}]}>
               <View>
                 <Image source={require('../Assets/login/Login/password.png')} 
-                style={styles.formIcons}/>
+                style={styles.noStyle}/>
               </View>
               <View style={{paddingHorizontal:8}}>
 
@@ -98,7 +98,7 @@ render = () => {
              <View style={[styles.inputContainer, {alignSelf:'center'}]}>
              <View>
                 <Image source={require('../Assets/login/Login/password.png')} 
-                style={styles.formIcons}/>
+                style={styles.noStyle}/>
               </View>
               <View style={{paddingHorizontal:8}}>
 
@@ -118,7 +118,7 @@ render = () => {
              <View style={[styles.inputContainer, {alignSelf:'center'}]}>
              <View>
                 <Image source={require('../Assets/login/Login/email.png')} 
-                style={styles.formIcons}/>
+                style={styles.noStyle}/>
               </View>
              <View style={{paddingHorizontal:8}}>
 
@@ -128,7 +128,7 @@ render = () => {
                     label="email"
                     placeholder="E-mail"
                     onChangeText={this.onEmailChange.bind(this)}
-                    value={this.props.password}
+                    value={this.props.email}
                   />
               </View>
             </View>

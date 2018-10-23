@@ -113,20 +113,31 @@ class Login extends Component {
           <View style={{paddingTop: width * 0.14}}></View>
 
           <View style={[styles.inputContainer, {alignSelf:'center'}]}>
-                <TextInput
-                    style={styles.inputText}
-                    secureTextEntry
-                    label="Username"
-                    placeholder="Username"
-                    onChangeText={this.onUsernameChange.bind(this)}
-                    value={this.props.username}
+              <View>
+                    <Image source={require('../Assets/login/Login/username.png')} 
+                    style={styles.formIcons}/>
+              </View>
+              <View style={{paddingHorizontal:8}}>
+                    <TextInput
+                        style={styles.inputText}
+                        secureTextEntry
+                        label="Username"
+                        placeholder="Username"
+                        onChangeText={this.onUsernameChange.bind(this)}
+                        value={this.props.username}
                />
-                  
+
+              </View> 
           </View>
 
           <View style={{paddingVertical: width * 0.031}}></View>
               
            <View style={[styles.inputContainer, {alignSelf:'center'}]}>
+                 <View>
+                    <Image source={require('../Assets/login/Login/password.png')} 
+                    style={styles.formIcons}/>
+              </View>
+              <View style={{paddingHorizontal:8}}>
                   <TextInput
                     style={styles.inputText}
                     secureTextEntry
@@ -135,6 +146,7 @@ class Login extends Component {
                     onChangeText={this.onPasswordChange.bind(this)}
                     value={this.props.password}
                   />
+              </View>
           </View>
               
 
@@ -187,18 +199,18 @@ const styles = {
     color: 'red'
   },
   TextInput: {
-   
-    fontSize: 18,
+    flex: 1,
+    fontSize: 30,
     marginLeft: 32,
-    width: '1%'
+    paddingRight: 10
   },
   inputContainer: {
     width: width * 0.75,
     backgroundColor: '#fff',
-    height: height * 0.073,
+    height: height * 0.070,
     alignItems: 'center',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    paddingLeft: width * 0.05,
     borderRadius: 30,
     shadowOffset:{  width: 2,  height: 4,  },
     shadowColor: '#3c3f44',

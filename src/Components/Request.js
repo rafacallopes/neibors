@@ -63,7 +63,7 @@ render = () => {
                   />
         </View>
         
-        
+      
         <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: height * 0.63}}>
           
             <View style={{alignSelf:'center'}}>
