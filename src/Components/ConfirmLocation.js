@@ -7,14 +7,14 @@ import { searchChanged } from '../actions';
 
 const { width, height } = Dimensions.get('window')
 
-class Home extends Component {
+class ConfirmLocation extends Component {
    
     onSearchChange(text) {
         this.props.searchChanged(text);
       }
 
-    onRequestPress = () => {
-        Actions.confirmlocation()
+    onContinuePress = () => {
+        Actions.jobdetails()
       }
 
 
@@ -24,28 +24,39 @@ render = () => {
         <ImageBackground source={require('../Assets/Find/map2.png')} 
             style={styles.backgroundImage}>
         <View style={styles.inner}>
-    <Header style ={{backgroundColor: '#103e59', height: height * 0.12}}>
-     <View style={{flexDirection: 'row',paddingTop: height * 0.03}}>
+    <Header style ={{backgroundColor: '#103e59', height: height * 0.19}}>
+        <View style={{ flexDirection: 'column', justifyContent: 'space-around'}}>
+            <View style={{flexDirection: 'row',paddingTop: height * 0.03}}>
 
-            <View style={{paddingHorizontal: width * 0.3}}>
-                <TouchableOpacity onPress={() => Actions.pop()}>
-                    <Image source={require('../Assets/Find/2/back-ios.png')} 
-                        style={styles.menu}/> 
-                </TouchableOpacity>
-            </View>
-           
-            <View>
-                <Image source={require('../Assets/Find/1/snow52.png')} 
-                        style={styles.logo}/> 
-            </View>
+                <View style={{paddingHorizontal: width * 0.3, paddingTop: height * 0.009}}>
+                    <TouchableOpacity onPress={() => Actions.pop()}>
+                        <Image source={require('../Assets/Find/2/back-ios.png')} 
+                            style={styles.menu}/> 
+                    </TouchableOpacity>
+                </View>
+            
+                <View>
+                    <Image source={require('../Assets/Find/1/snow52.png')} 
+                            style={styles.logo}/> 
+                </View>
 
-            <View style={{paddingHorizontal: width * 0.3}}>
-                <TouchableOpacity>
-                    <Image source={require('../Assets/Find/1/menu.png')} 
-                        style={styles.menu}/> 
-                </TouchableOpacity>   
-            </View>
-     </View>
+                <View style={{paddingHorizontal: width * 0.3, paddingTop: height * 0.009}}>
+                    <TouchableOpacity>
+                        <Image source={require('../Assets/Find/1/menu.png')} 
+                            style={styles.menu}/> 
+                    </TouchableOpacity>   
+                </View>
+             </View>
+     
+            
+
+            
+                <View style={{alignSelf: 'center'}}>
+                    <Image source={require('../Assets/Request/ConfirmLocation3/progressBar1.png')} 
+                        style={styles.progressBar}/>
+                </View>
+        </View>
+            
     </Header>
     
     <Body>
@@ -64,12 +75,18 @@ render = () => {
         </View>
         
       
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: height * 0.63}}>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: height * 0.37, flexDirection: 'column'}}>
           
+            <View style={styles.info}>
+            <Text style={{fontSize: 15, color: 'white', paddingLeft: width * 0.024, paddingTop: height * 0.025 }}>Shoverels are currently available in your area</Text>
+            </View>
+
+            <View style={{paddingVertical: height * 0.015}}></View>
+
             <View style={{alignSelf:'center'}}>
-                <Button style={styles.Request} onPress={() => this.onRequestPress()}>
-                    <View style={{paddingHorizontal: width * 0.18, }}>
-                        <Text style={{fontSize: 20, color: 'white', }}>REQUEST A JOB</Text>
+                <Button style={styles.Continue} onPress={() => this.onContinuePress()}>
+                    <View style={{paddingHorizontal: width * 0.29, }}>
+                        <Text style={{fontSize: 20, color: 'white', }}>Continue</Text>
                     </View>
                 </Button>
             </View>
@@ -109,13 +126,25 @@ const styles = {
       shadowOpacity: 1.0,
     },
  
-    Request: {
-        width: width * 0.75,
+    Continue: {
+        width: width * 0.80,
         borderRadius: 30,
         height: height * 0.08,
         borderColor: '#103e59',
         borderWidth: 2,
         backgroundColor: '#103e59',
+        shadowOffset:{  width: 2,  height: 4,  },
+        shadowColor: '#3c3f44',
+        shadowOpacity: 1.0,
+      },
+      
+      info: {
+        width: width * 0.80,
+        borderRadius: 30,
+        height: height * 0.08,
+        borderColor: '#436625',
+        borderWidth: 2,
+        backgroundColor: '#436625',
         shadowOffset:{  width: 2,  height: 4,  },
         shadowColor: '#3c3f44',
         shadowOpacity: 1.0,
@@ -143,8 +172,14 @@ const styles = {
     settings: {
         width: 35,
         height: 35,
-      }
+      },
+      progressBar: {
+        resizeMode: 'stretch',
+        width: width * 0.86,
+        height: height * 0.05,
+      },
   };
+  
 
 
   const mapStateToProps = ({ job }) => {
@@ -155,4 +190,6 @@ const styles = {
   
   export default connect(mapStateToProps, {
     searchChanged
-  })(Home);
+  })(ConfirmLocation);
+
+//   #a8b3c4

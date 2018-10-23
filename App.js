@@ -9,6 +9,8 @@ import Login from './src/Components/Login';
 import Signup from './src/Components/Signup';
 import Home from './src/Components/Home';
 import Request from './src/Components/Request';
+import ConfirmLocation from './src/Components/ConfirmLocation';
+import JobDetails from './src/Components/JobDetails';
 
 
 
@@ -22,6 +24,7 @@ export default class App extends React.Component {
       <View style={{flex: 1}}>
         <Router>
           <Scene key="root">
+         
             <Scene key="login"
               component={Login}
               title="login"
@@ -46,6 +49,19 @@ export default class App extends React.Component {
               title="request"
               hideNavBar
           /> 
+           <Scene
+              key="confirmlocation"
+              component={ConfirmLocation}
+              title="confirmcocation"
+              hideNavBar
+          /> 
+          <Scene
+              key="jobdetails"
+              component={JobDetails}
+              title="jobdetails"
+              hideNavBar
+          /> 
+          
              
           </Scene>
         </Router>

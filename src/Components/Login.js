@@ -199,23 +199,23 @@ const styles = {
     color: 'red'
   },
   TextInput: {
-    flex: 1,
-    fontSize: 30,
-    marginLeft: 32,
-    paddingRight: 10
-  },
-  inputContainer: {
-    width: width * 0.75,
-    backgroundColor: '#fff',
-    height: height * 0.070,
-    alignItems: 'center',
-    flexDirection: 'row',
-    paddingLeft: width * 0.05,
-    borderRadius: 30,
-    shadowOffset:{  width: 2,  height: 4,  },
-    shadowColor: '#3c3f44',
-    shadowOpacity: 1.0,
-  },
+      flex: 1,
+      fontSize: 30,
+      marginLeft: 32,
+      paddingRight: 10
+    },
+    inputContainer: {
+      width: width * 0.75,
+      backgroundColor: '#fff',
+      height: height * 0.070,
+      alignItems: 'center',
+      flexDirection: 'row',
+      paddingLeft: width * 0.05,
+      borderRadius: 30,
+      shadowOffset:{  width: 2,  height: 4,  },
+      shadowColor: '#3c3f44',
+      shadowOpacity: 1.0,
+    },
   Button: {
     width: width * 0.75,
     borderRadius: 30,
